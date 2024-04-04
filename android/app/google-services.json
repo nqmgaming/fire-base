@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "619148008861",
+    "project_id": "test-ea8df",
+    "storage_bucket": "test-ea8df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619148008861:android:1565f5b6b2925962402374",
+        "android_client_info": {
+          "package_name": "com.nqmgaming.firebase"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "619148008861-gl82bfal4v32ua0n3v101tm1qumc8jhn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nqmgaming.firebase",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "619148008861-i8nebihrprtuq8hq58kvtqdvnb3cdfsq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nqmgaming.firebase",
+            "certificate_hash": "dc570bb31088e144299f362f0f768e421c0f614e"
+          }
+        },
+        {
+          "client_id": "619148008861-pvqi0b1cf108donng5eckk6ua5nmfmc3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_oB5KWCpAMsJh2BNSnMXDlyFDg1H0tm4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "619148008861-3f6hqo7qh6btmdin6ndk0gjf869od217.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
