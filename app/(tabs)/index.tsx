@@ -4,6 +4,7 @@ import {
   TextInput,
   TouchableOpacity,
   ActivityIndicator,
+  Image,
 } from "react-native";
 import auth from "@react-native-firebase/auth";
 import EditScreenInfo from "@/components/EditScreenInfo";
@@ -23,7 +24,14 @@ export default function TabOneScreen() {
   const [error, seterror] = useState("");
   const [isLoginng, setisLoginng] = useState(false);
 
-  function onAuthStateChanged(user) {
+  async function onAuthStateChanged(user) {
+    if (user) {
+      const token = await user.getIdToken();
+      console.log("User logged in: ", user);
+      console.log("Token ID: ", token);
+    } else {
+      console.log("User logged out");
+    }
     setuser(user);
     if (initializing) {
       setInitializing(false);
@@ -63,6 +71,10 @@ export default function TabOneScreen() {
           "619148008861-pvqi0b1cf108donng5eckk6ua5nmfmc3.apps.googleusercontent.com",
         scopes: ["profile", "email"],
         offlineAccess: true,
+        profileImageSize: 120,
+        hostedDomain: "",
+        forceCodeForRefreshToken: true,
+        accountName: "",
       });
       // Start the sign in process
       const { idToken } = await GoogleSignin.signIn();
@@ -138,6 +150,7 @@ export default function TabOneScreen() {
             size={GoogleSigninButton.Size.Standard}
             color={GoogleSigninButton.Color.Dark}
             onPress={onGoogleButtonPress}
+            disabled={isLoginng}
           />
         </View>
       </View>
@@ -147,6 +160,18 @@ export default function TabOneScreen() {
   return (
     <View style={styles.container}>
       <Text>Welcome {user.email}</Text>
+      <Text>Your email is verified: {user.emailVerified ? "yes" : "no"}</Text>
+      <Image
+        source={{
+          uri: user.photoURL,
+        }}
+        style={{
+          width: 100,
+          height: 100,
+          borderRadius: 50,
+          marginTop: 20,
+        }}
+      />
 
       <Button title="Sign out" onPress={() => auth().signOut()} />
     </View>
