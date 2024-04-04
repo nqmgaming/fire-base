@@ -23,6 +23,7 @@ export default function TabOneScreen() {
   const [user, setuser] = useState();
   const [error, seterror] = useState("");
   const [isLoginng, setisLoginng] = useState(false);
+  const [verificationEmailSent, setVerificationEmailSent] = useState(false);
 
   async function onAuthStateChanged(user) {
     if (user) {
@@ -42,7 +43,7 @@ export default function TabOneScreen() {
     setisLoginng(true);
     seterror("");
     auth()
-      .signInWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password)
       .then(() => {
         console.log("Account was created and logined");
         setisLoginng(false);
@@ -172,7 +173,21 @@ export default function TabOneScreen() {
           marginTop: 20,
         }}
       />
-
+      {user.emailVerified ? null : (
+        <Button
+          title={
+            verificationEmailSent ? "Verification email sent" : "Verify email"
+          }
+          onPress={async () => {
+            await auth().currentUser.sendEmailVerification();
+            setVerificationEmailSent(true);
+          }}
+        />
+      )}
+      <Button
+        title="Check verification status"
+        onPress={() => onAuthStateChanged(user)}
+      />
       <Button title="Sign out" onPress={() => auth().signOut()} />
     </View>
   );
