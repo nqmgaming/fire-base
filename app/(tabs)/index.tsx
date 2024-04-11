@@ -5,10 +5,10 @@ import {
   TouchableOpacity,
   ActivityIndicator,
   Image,
+  View,
+  Text,
 } from "react-native";
 import auth from "@react-native-firebase/auth";
-import EditScreenInfo from "@/components/EditScreenInfo";
-import { Text, View } from "@/components/Themed";
 import React, { useState, useEffect } from "react";
 import {
   GoogleSignin,
